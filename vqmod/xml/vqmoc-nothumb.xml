@@ -69,4 +69,24 @@
 			]]></add>
 	</operation>
 	</file>
+	
+	<file name="catalog/controller/product/search.php">
+	<operation info="$result['image']">
+		<search position="before"><![CDATA[
+			$data['products'][] = array(
+			]]></search>
+		<add><![CDATA[
+			if(empty($result['image'])) {$result['image'] = 'default.jpg';}
+			]]></add>
+	</operation>
+	<operation info="$data['products']['picture']">
+		<search position="after"><![CDATA[
+			$data['products'][] = array(
+			]]></search>
+		<add><![CDATA[
+			'picture'       => HTTP_SERVER.'image/'.$result['image'],
+			]]></add>
+	</operation>
+	</file>
+
 </modification>
