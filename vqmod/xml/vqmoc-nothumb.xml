@@ -34,4 +34,39 @@
 	</operation>
 	</file>
 	
+	<file name="catalog/controller/product/product.php">
+	<operation info="$data['picture']">
+		<search position="before"><![CDATA[$this->load->model('tool/image');]]></search>
+		<add><![CDATA[
+			if (empty($product_info['image'])) {$data['picture'] = HTTP_SERVER.'image/default.jpg';}
+			else {$data['picture'] = HTTP_SERVER.'image/'.$product_info['image'];}
+			$data['height'] = $product_info['height'];
+			$data['length'] = $product_info['length'];
+			]]></add>
+	</operation>
+	<operation info="$result['image']">
+		<search position="before"><![CDATA[
+			$data['products'][] = array(
+			]]></search>
+		<add><![CDATA[
+			if(empty($result['image'])) {$result['image'] = 'default.jpg';}
+			]]></add>
+	</operation>
+	<operation info="$data['products']['picture']">
+		<search position="after"><![CDATA[
+			$data['products'][] = array(
+			]]></search>
+		<add><![CDATA[
+			'picture'       => HTTP_SERVER.'image/'.$result['image'],
+			]]></add>
+	</operation>
+	<operation info="$data['images'][picture]">
+		<search position="after"><![CDATA[
+			$data['images'][] = array(
+			]]></search>
+		<add><![CDATA[
+			'picture' => HTTP_SERVER.'image/'.$result['image'],
+			]]></add>
+	</operation>
+	</file>
 </modification>
