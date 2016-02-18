@@ -16,3 +16,7 @@ The latest release of these modifications have been tested with:
 * [OpenCart 2.0.1.1](https://github.com/opencart/opencart/releases/tag/2.0.1.1)
 * [vQmod 2.5.1](https://github.com/vqmod/vqmod/releases/tag/v2.5.1-opencart.zip) for OpenCart
 * [Author Module 3.0.2](http://www.opencart.com/index.php?route=extension/extension/info&extension_id=3254)
+
+## Installation
+
+After having [installed integration of vQmod for OpenCart](https://github.com/vqmod/vqmod/wiki/Installing-vQmod-on-OpenCart), simply copy the `.xml` files in the `vqmod\xml` folder.
